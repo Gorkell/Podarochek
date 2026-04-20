@@ -26,8 +26,28 @@
     <!-- Основной контейнер -->
     <div class="container">
         
+        <!-- Стартовая страница: Меню -->
+        <section class="page active" id="page0">
+            <div class="content menu-content">
+                <h1 class="main-title">🎁</h1>
+                <p class="subtitle">У меня есть кое-что для тебя...</p>
+                
+                <div class="menu-buttons">
+                    <button id="start-music-btn" class="big-music-btn" onclick="startMusicAndContinue()">
+                        <span class="music-emoji">🎵</span>
+                        <span class="btn-text">Включить музыку</span>
+                    </button>
+                    
+                    <button class="gift-btn" onclick="startSite()">
+                        <span class="gift-emoji">🎁</span>
+                        <span class="btn-text">Получить подарок</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Страница 1: Вступление -->
-        <section class="page active" id="page1">
+        <section class="page" id="page1">
             <div class="progress-indicator">1 / 5</div>
             
             <div class="content">

@@ -3,6 +3,11 @@ let currentPage = 1;
 const totalPages = 5;
 let quizPassed = false;
 let pagesViewed = new Set();
+let musicPlaying = false;
+let musicStarted = false;
+const bgMusic = document.getElementById('bg-music');
+const musicToggle = document.getElementById('music-toggle');
+const musicIcon = document.getElementById('music-icon');
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.style.display = 'none';
+            // Пробуем запустить музыку после прелоадера
+            tryStartMusic();
         }, 500);
     }, 1500);
 
@@ -23,7 +30,59 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Инициализация обработчиков событий
     initEventListeners();
+    
+    // Обработчик для запуска музыки при первом взаимодействии
+    const startMusicOnInteraction = () => {
+        if (!musicStarted) {
+            tryStartMusic();
+        }
+    };
+    
+    document.addEventListener('click', startMusicOnInteraction, { once: true });
+    document.addEventListener('touchstart', startMusicOnInteraction, { once: true, passive: true });
 });
+
+// Попытка запустить музыку
+function tryStartMusic() {
+    if (!bgMusic || musicStarted) return;
+    
+    bgMusic.volume = 0.5;
+    bgMusic.play().then(() => {
+        musicPlaying = true;
+        musicStarted = true;
+        updateMusicButton();
+    }).catch(err => {
+        // Автовоспроизведение заблокировано, ждем взаимодействия
+        console.log('Music autoplay blocked, waiting for user interaction');
+    });
+}
+
+// Включить/выключить музыку
+function toggleMusic() {
+    if (!bgMusic) return;
+    
+    if (musicPlaying) {
+        bgMusic.pause();
+        musicPlaying = false;
+    } else {
+        bgMusic.volume = 0.5;
+        bgMusic.play().then(() => {
+            musicPlaying = true;
+            musicStarted = true;
+        });
+    }
+    updateMusicButton();
+}
+
+// Обновить иконку кнопки музыки
+function updateMusicButton() {
+    if (musicIcon) {
+        musicIcon.textContent = musicPlaying ? '🎵' : '🔇';
+    }
+    if (musicToggle) {
+        musicToggle.classList.toggle('playing', musicPlaying);
+    }
+}
 
 // Показать страницу
 function showPage(pageNum) {

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>7 лет нашей дружбы</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Прелоадер -->
+    <div class="preloader">
+        <div class="heart-loader">💗</div>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        
+        <!-- Страница 1: Вступление -->
+        <section class="page active" id="page1">
+            <div class="progress-indicator">1 / 5</div>
+            
+            <div class="content">
+                <h1 class="main-title">7 лет нашей дружбы</h1>
+                <p class="subtitle">За это время было столько тёплых моментов, что я захотела собрать часть из них здесь</p>
+                
+                <!-- Главная фотография -->
+                <div class="main-photo">
+                    <img src="images/page1/1.jpg" alt="Главное фото" class="fade-in">
+                </div>
+                
+                <!-- Галерея дополнительных фото -->
+                <div class="photo-gallery">
+                    <div class="gallery-item fade-in">
+                        <img src="images/page1/2.jpg" alt="Фото 2">
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="images/page1/3.jpg" alt="Фото 3">
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="images/page1/4.jpg" alt="Фото 4">
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <img src="images/page1/5.jpg" alt="Фото 5">
+                    </div>
+                </div>
+                
+                <button class="next-btn" onclick="nextPage()">Далее 💕</button>
+            </div>
+        </section>
+
+        <!-- Page 2: Compliments -->
+        <section class="page" id="page2">
+            <div class="progress-indicator">2 / 5</div>
+            
+            <div class="content">
+                <h1 class="main-title">Моя самая любимая и красивая девочка!</h1>
+                <p class="subtitle">Твои глаза как звёзды, улыбка как солнечный луч, а доброта твоего сердца согревает всё вокруг</p>
+                
+                <!-- Мозаика из 7 фото -->
+                <div class="compliment-mosaic">
+                    <div class="mosaic-item glow-effect"><img src="images/page2/1.jpg" alt="Фото 1"></div>
+                    <div class="mosaic-item glow-effect"><img src="images/page2/2.jpg" alt="Фото 2"></div>
+                    <div class="mosaic-item glow-effect"><img src="images/page2/3.jpg" alt="Фото 3"></div>
+                    <div class="mosaic-item glow-effect"><img src="images/page2/4.jpg" alt="Фото 4"></div>
+                    <div class="mosaic-item glow-effect"><img src="images/page2/5.jpg" alt="Фото 5"></div>
+                    <div class="mosaic-item glow-effect"><img src="images/page2/6.jpg" alt="Фото 6"></div>
+                    <div class="mosaic-item glow-effect"><img src="images/page2/7.jpg" alt="Фото 7"></div>
+                </div>
+                
+                <button class="next-btn" onclick="nextPage()">Далее 💕</button>
+            </div>
+        </section>
+
+        <!-- Страница 3: Тест на воспоминания -->
+        <section class="page" id="page3">
+            <div class="progress-indicator">3 / 5</div>
+            
+            <div class="content">
+                <h1 class="main-title">Давай вспомним нас?</h1>
+                <p class="subtitle">Проверь, насколько хорошо ты помнишь нашу историю</p>
+                
+                <div class="quiz-container">
+                    <!-- Вопрос 1 -->
+                    <div class="question-card">
+                        <h3>Как мы познакомились?</h3>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q1" value="Дайвинчик">
+                                <span>Дайвинчик</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="Пост в вк">
+                                <span>Пост в вк</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="Сервер майнкрафт">
+                                <span>Сервер майнкрафт</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="question-card">
+                        <h3>Кого или что мы больше всего обсуждаем?</h3>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q2" value="Бывших">
+                                <span>Бывших</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="Котиков">
+                                <span>Котиков</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="Игры">
+                                <span>Игры</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="question-card">
+                        <h3>Наша общая проблема?</h3>
+                        <div class="options">
+                            <label class="option">
+                                <input type="checkbox" name="q3" value="Здоровье">
+                                <span>Здоровье</span>
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" name="q3" value="Любовь">
+                                <span>Любовь</span>
+                            </label>
+                            <label class="option">
+                                <input type="checkbox" name="q3" value="Память">
+                                <span>Память</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="check-btn" onclick="checkQuiz()">Проверить ответы</button>
+                    
+                    <div id="quiz-result" class="quiz-result"></div>
+                    
+                    <div id="cat-photo" class="cat-photo" style="display: none;">
+                        <img src="images/cat/котэк.jpg" alt="Милый котик">
+                        <p>Вот и наша награда! 🐱💕</p>
+                    </div>
+                    
+                    <button id="next-after-quiz" class="next-btn" onclick="nextPage()" style="display: none;">Далее 💕</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Страница 4: Галерея артов -->
+        <section class="page" id="page4">
+            <div class="progress-indicator">4 / 5</div>
+            
+            <div class="content">
+                <h1 class="main-title">А это всё, что я тебе рисовала</h1>
+                <p class="subtitle">Каждый рисунок - это частичка моей души, воспоминания и заботы о тебе</p>
+                
+<div class="arts-gallery">
+    
+    <div class="art-card">
+        <img src="images/arts/1.jpg" alt="Арт 1">
+        <div class="art-date">15.02.2022</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/2.jpg" alt="Арт 2">
+        <div class="art-date">31.01.2024</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/3.jpg" alt="Арт 3">
+        <div class="art-date">02.02.2024</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/4.jpg" alt="Арт 4">
+        <div class="art-date">07.04.2024</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/5.jpg" alt="Арт 5">
+        <div class="art-date">03.09.2024</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/6.jpg" alt="Арт 6">
+        <div class="art-date">17.10.2024</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/7.jpg" alt="Арт 7">
+        <div class="art-date">10.04.2023</div>
+    </div>
+
+    <div class="art-card">
+        <img src="images/arts/8.jpg" alt="Арт 8">
+        <div class="art-date">11.05.2025</div>
+    </div>
+
+</div>
+                
+                <button class="next-btn" onclick="nextPage()">Далее 💕</button>
+            </div>
+        </section>
+
+        <!-- Страница 5: Секретная финальная -->
+        <section class="page" id="page5">
+            <div class="progress-indicator">5 / 5</div>
+            
+            <div class="content">
+                <div class="secret-reveal">
+                    <h1 class="main-title fade-in-secret">Если ты дошла сюда...</h1>
+                    <p class="subtitle fade-in-secret">...значит посмотрела всё, что я хотела тебе показать</p>
+                    
+                    <div class="love-message fade-in-secret">
+                        <p class="big-love-text">Я тебя очень люблю :)</p>
+                        <div class="heart-animation">💗</div>
+                    </div>
+                    
+                    <div class="qr-container fade-in-secret">
+                        <img src="images/qr/secret-qr.png" alt="QR код с сюрпризом" class="qr-code">
+                        <p class="qr-hint">Отсканируй, чтобы увидеть ещё один сюрприз</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Декоративные элементы -->
+    <div class="floating-hearts">
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💖</div>
+        <div class="heart">💝</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

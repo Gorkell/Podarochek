@@ -1,6 +1,7 @@
 // Глобальные переменные
-let currentPage = 1;
-const totalPages = 5;
+let currentPage = 0; // Начинаем с меню (страница 0)
+const totalPages = 6; // 0 (меню) + 5 страниц контента
+const contentPages = 5; // Количество контентных страниц для прогресса
 let quizPassed = false;
 let pagesViewed = new Set();
 let musicPlaying = false;
@@ -8,6 +9,7 @@ let musicStarted = false;
 const bgMusic = document.getElementById('bg-music');
 const musicToggle = document.getElementById('music-toggle');
 const musicIcon = document.getElementById('music-icon');
+const bigMusicBtn = document.getElementById('start-music-btn');
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }, 1500);
 
-    // Инициализация первой страницы
-    showPage(1);
+    // Инициализация - показываем меню (страница 0)
+    showPage(0);
     
     // Добавить плавное появление элементов
     animatePageElements();
@@ -140,8 +142,51 @@ function nextPage() {
 function updateProgress(pageNum) {
     const progressIndicators = document.querySelectorAll('.progress-indicator');
     progressIndicators.forEach(indicator => {
-        indicator.textContent = `${pageNum} / ${totalPages}`;
+        if (pageNum === 0) {
+            // На меню не показываем прогресс
+            indicator.style.display = 'none';
+        } else {
+            // Для контентных страниц показываем прогресс 1-5
+            indicator.style.display = 'block';
+            indicator.textContent = `${pageNum} / ${contentPages}`;
+        }
     });
+}
+
+// Запустить музыку из меню
+function startMusicAndContinue() {
+    if (!bgMusic) return;
+    
+    bgMusic.volume = 0.5;
+    bgMusic.play().then(() => {
+        musicPlaying = true;
+        musicStarted = true;
+        updateMusicButton();
+        if (bigMusicBtn) {
+            bigMusicBtn.classList.add('playing');
+        }
+    }).catch(err => {
+        console.log('Music play failed:', err);
+    });
+}
+
+// Начать сайт (перейти с меню на первую страницу)
+function startSite() {
+    // Если музыка еще не запущена, пробуем запустить
+    if (!musicStarted && bgMusic) {
+        bgMusic.volume = 0.5;
+        bgMusic.play().then(() => {
+            musicPlaying = true;
+            musicStarted = true;
+            updateMusicButton();
+        }).catch(() => {
+            // Музыка заблокирована, но всё равно продолжаем
+        });
+    }
+    
+    // Переходим на первую контентную страницу
+    currentPage = 1;
+    showPage(1);
 }
 
 // Анимировать элементы на текущей странице

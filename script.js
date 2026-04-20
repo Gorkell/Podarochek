@@ -38,6 +38,9 @@ function showPage(pageNum) {
     if (currentPageElement) {
         currentPageElement.classList.add('active');
         
+        // Скролл наверх страницы
+        currentPageElement.scrollTop = 0;
+        
         // Обновить прогресс
         updateProgress(pageNum);
         

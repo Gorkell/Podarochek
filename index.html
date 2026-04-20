@@ -8,6 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Аудио -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Кнопка управления музыкой -->
+    <button id="music-toggle" class="music-btn" onclick="toggleMusic()">
+        <span id="music-icon">🎵</span>
+    </button>
+
     <!-- Прелоадер -->
     <div class="preloader">
         <div class="heart-loader">💗</div>

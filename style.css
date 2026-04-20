@@ -76,16 +76,21 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh; /* Для мобильных */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 2rem;
+    padding-top: 5rem;
     opacity: 0;
     transform: translateX(100px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .page.active {
@@ -94,9 +99,21 @@ body {
     visibility: visible;
 }
 
+/* Скрываем скроллбар но оставляем функциональность */
+.page::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+.page {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
 /* Прогресс */
 .progress-indicator {
-    position: absolute;
+    position: fixed;
     top: 2rem;
     right: 2rem;
     background: var(--white);
@@ -105,7 +122,7 @@ body {
     box-shadow: 0 4px 15px var(--shadow);
     font-size: 0.9rem;
     color: var(--text-light);
-    z-index: 10;
+    z-index: 1000;
 }
 
 /* Контент */
@@ -114,6 +131,7 @@ body {
     width: 100%;
     text-align: center;
     z-index: 5;
+    padding-bottom: 2rem;
 }
 
 /* Заголовки */
@@ -383,7 +401,6 @@ body {
 }
 
 /* Страница 4 - Галерея артов */
-/* Страница 4 - Галерея артов */
 .arts-gallery {
     column-count: 3;
     column-gap: 18px;
@@ -547,9 +564,7 @@ body {
 @media (max-width: 768px) {
     .page {
         padding: 1.25rem;
-        justify-content: flex-start;
-        padding-top: 5rem;
-        min-height: 100svh;
+        padding-top: 4.5rem;
     }
     
     .progress-indicator {
